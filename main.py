@@ -10,14 +10,19 @@ from tomark import Tomark
 # path to sigma rules
 rules_path = sys.argv[1]
 
-print('Page format extracts selected fields, table format prints all fields')
-md_format = input('Specify markdown format: (page or table): ')
+print('page vs table: page extracts selected fields and is availabe also as a PDF, table prints all fields and is available only as a markdown')
+md_format = input('Specify markdown format: ("page" or "table"): ')
 while md_format not in ['page', 'table']:
     print('You have specified markdown format: ', md_format)
     print('You have entered invalid option, type "page" or "table"')
     md_format = input('Specify markdown format: (page or table): ')
 
-pdf_output = input('Do you want also a PDF output? ')
+pdf_output = None
+if md_format == 'page':
+    pdf_output = input('Do you want also a PDF output: ("yes" or "no") ')
+else:
+    pdf_output = 'no'
+
 while pdf_output not in ['yes','no']:
     print('You have specified PDF option: ', pdf_output)
     print('You have entered invalid option, type "yes" or "no"')
