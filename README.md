@@ -19,17 +19,22 @@ Output file contains:
 Script expects a directory with Sigma rules written in yaml format: [Sigma rules](https://github.com/SigmaHQ/sigma) 
 
 ### Output options
-Output could be either a markdown file or a markdown table
-To switch to a table output comment/uncomment yaml_list_to_page vs yaml_list_to_md_table in the code:
+Script can output parsed info in a  markdown format in "page" or "table" style as a txt file and pdf file.  
+After you run the script, it will prompt you for the output style and format.  
+
+
+**Script prompt example**:
 
 <code>
-  if __name__ == '__main__':
-    
-    loaded_yaml = load_yaml(rules_path)
-
-    # 2 options: page or table output
-    markdown = yaml_list_to_md_page(loaded_yaml)
-    # markdown = yaml_list_to_md_table(loaded_yaml)
-
-    write_to_file(markdown)
+  $ python main.py ./data/test/
+  
+  Page format extracts selected fields, table format prints all fields
+  
+  Specify markdown format: (page or table): page
+  
+  Do you want also a PDF output? yes
+  
+  Your markdown file is ready in this directory under "sigma_rules_summary.txt" name
+  
+  Your PDF file is ready in this directory under "sigma_rules_summary.pdf" name
 </code>
