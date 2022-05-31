@@ -49,4 +49,6 @@ After you run the script, it will prompt you for the output style and format.
 **... or specify your own directory**
 `sigma2attack --rules-directory ~/hunting/rules`
 
+heatmap should be available in the local directory as "heatmap.json"
+
 more info about sigma2attack is available on their repo: [sigma2attack repo](https://github.com/SigmaHQ/sigma#sigma2attack)
