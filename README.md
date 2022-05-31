@@ -25,16 +25,16 @@ After you run the script, it will prompt you for the output style and format.
 
 **Script prompt example**:
 
-<code>
-  $ python main.py ./data/test/
-  
-  Page format extracts selected fields, table format prints all fields
-  
-  Specify markdown format: (page or table): page
-  
-  Do you want also a PDF output? yes
-  
-  Your markdown file is ready in this directory under "sigma_rules_summary.txt" name
-  
-  Your PDF file is ready in this directory under "sigma_rules_summary.pdf" name
-</code>
+
+`$ python main.py ./data/test/`
+
+`Page format extracts selected fields, table format prints all fields`
+
+`Specify markdown format: (page or table): page`
+
+`Do you want also a PDF output? yes`
+
+`Your markdown file is ready in this directory under "sigma_rules_summary.txt" name`
+
+`Your PDF file is ready in this directory under "sigma_rules_summary.pdf" name`
+
