@@ -50,7 +50,7 @@ def yaml_list_to_md_page(yaml_list):
 
 
 def write_to_file(markdown):
-    with open('final_file.txt', 'w+') as final_file:
+    with open('sigma_rules_summary.txt', 'w+') as final_file:
         final_file.write(markdown)
 
 
