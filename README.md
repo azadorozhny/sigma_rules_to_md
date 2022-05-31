@@ -40,6 +40,7 @@ After you run the script, it will prompt you for the output style and format.
 
 ### How to generate a Mitre att&ck navigator heatmap
 (1) Install sigma tools: `pip3 install sigmatools`
+
 (2) Run sigma2attack:
 
 **Use the default "rules" directory**
