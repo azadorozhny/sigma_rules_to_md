@@ -38,3 +38,14 @@ After you run the script, it will prompt you for the output style and format.
 
 `Your PDF file is ready in this directory under "sigma_rules_summary.pdf" name`
 
+### How to generate a Mitre att&ck navigator heatmap
+(1) Install sigma tools: `pip3 install sigmatools`
+(2) Run sigma2attack:
+
+Use the default "rules" directory
+ `sigma2attack`
+
+**... or specify your own directory**
+`sigma2attack --rules-directory ~/hunting/rules`
+
+more info about sigma2attack is available on their repo: [sigma2attack repo](https://github.com/SigmaHQ/sigma#sigma2attack)
