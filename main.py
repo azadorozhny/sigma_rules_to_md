@@ -9,6 +9,7 @@ from tomark import Tomark
 
 import markdown as markdownlib
 
+import json
 # path to sigma rules
 rules_path = sys.argv[1]
 
@@ -37,6 +38,11 @@ def load_yaml(path_string):
         with open(p) as yamlfile:
             d = yaml.load(yamlfile, Loader=yaml.FullLoader)
             d['parent'] = p.parent
+
+            rulepath = str(p)
+            rulepath = rulepath.split('/rules/')[-1]
+            d['path'] = rulepath
+
             final_list.append(d)
     return final_list
 
@@ -47,27 +53,63 @@ def yaml_list_to_md_table(yaml_list):
 
 
 def yaml_list_to_md_page(yaml_list):
+    markdown_output_string = ''
+
+    header_string = '''# Sigma Rules (Sigma HQ)
+    '''
+
+    category_string = ''
+
     rule_template = '''
-    ### {title}
-    - **description**: {description}
-    - **category**: {parent}
-    - **level**: {level}
-    - **id**: {id}
+    \n### {title}
+    
+    {description}
+
+    * Level: {level}
     '''
-    final_string = '''
-    # List of covered sigma rules
+
+    mitre_tags_template = '''* MITRE: {tag}
     '''
+
+    references_template = '''\n* {reference}\n'''
+
+    markdown_output_string += header_string
+
     for i in yaml_list:
-        rule_in_md = rule_template.format(
+        rule_string = rule_template.format(
             title=i['title'],
             description=i['description'],
             parent=i['parent'],
             level=i['level'],
-            id=i['id']
+            id=i['id'],
         )
-        # print(rule_in_md)
-        final_string += rule_in_md
-    return final_string
+        # print(i)
+        # print('\n\n\n')
+
+        references_string = ''
+        if i.get('references') is not None:
+            for j in i['references']:
+                single_reference = references_template.format(reference=j)
+                references_string += single_reference
+
+        sigma_hq_reference = '* https://github.com/SigmaHQ/sigma/tree/master/rules/{}'.format(i['path'])
+
+        mitre_string = ''
+        if i.get('tags') is not None:
+            for k in i['tags']:
+                mitre_string += mitre_tags_template.format(tag=k)
+
+        final_string = ''
+        final_string += rule_string
+        final_string += mitre_string
+        final_string += '\nReferences: \n'
+        final_string += sigma_hq_reference
+        final_string += references_string
+
+
+        markdown_output_string += final_string
+
+    return markdown_output_string
 
 def yaml_list_to_pdf_page(yaml_list):
     rule_template = '''
@@ -77,7 +119,7 @@ def yaml_list_to_pdf_page(yaml_list):
     - level: {level}
     - id: {id}
     '''
-    final_string = '''
+    header_string = '''
     List of covered sigma rules
     '''
     for i in yaml_list:
@@ -89,8 +131,8 @@ def yaml_list_to_pdf_page(yaml_list):
             id=i['id']
         )
         # print(rule_in_md)
-        final_string += rule_in_md
-    return final_string
+        header_string += rule_in_md
+    return header_string
 
 def text_to_pdf(text, filename):
     a4_width_mm = 210

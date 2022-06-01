@@ -1,0 +1,20 @@
+{
+    "name": "Sigma rules heatmap",
+    "versions": {
+        "attack": "10",
+        "navigator": "4.4.4",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Sigma rules heatmap",
+    "gradient": {
+        "colors": [
+            "#66b1ffff",
+            "#ff66f4ff",
+            "#ff6666ff"
+        ],
+        "maxValue": 0,
+        "minValue": 0
+    },
+    "techniques": []
+}
