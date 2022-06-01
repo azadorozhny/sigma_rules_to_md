@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d03d48b8-a0d7-4a82-a1b4-27e15fc85d49" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_exploiting.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_hacktool.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_password_dumper.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_printernightmare_cve_2021_34527.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_ransomware.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_relevant_files.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test/av_webshell.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/heatmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/heatmap.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigma_rules_summary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sigma_rules_summary.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653989677624</updated>
       <workItem from="1653989679213" duration="7276000" />
-      <workItem from="1654071808818" duration="8341000" />
+      <workItem from="1654071808818" duration="11525000" />
     </task>
     <servers />
   </component>

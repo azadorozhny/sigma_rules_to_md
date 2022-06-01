@@ -37,7 +37,10 @@ def load_yaml(path_string):
     for p in path_iterable:
         with open(p) as yamlfile:
             d = yaml.load(yamlfile, Loader=yaml.FullLoader)
-            d['parent'] = p.parent
+
+            parentpath = str(p.parent)
+            parentpath = parentpath.split('/rules/')[-1]
+            d['parent'] = parentpath
 
             rulepath = str(p)
             rulepath = rulepath.split('/rules/')[-1]
@@ -58,7 +61,7 @@ def yaml_list_to_md_page(yaml_list):
     header_string = '''# Sigma Rules (Sigma HQ)
     '''
 
-    category_string = ''
+    category_template = '\n## {category}'
 
     rule_template = '''
     \n### {title}
@@ -73,9 +76,16 @@ def yaml_list_to_md_page(yaml_list):
 
     references_template = '''\n* {reference}\n'''
 
+    prev_category_string = ''
+    new_category_string = ''
+
+
     markdown_output_string += header_string
 
     for i in yaml_list:
+
+        new_category_string = i['parent']
+
         rule_string = rule_template.format(
             title=i['title'],
             description=i['description'],
@@ -100,6 +110,11 @@ def yaml_list_to_md_page(yaml_list):
                 mitre_string += mitre_tags_template.format(tag=k)
 
         final_string = ''
+
+        if prev_category_string != new_category_string:
+            final_string += category_template.format(category=new_category_string)
+            prev_category_string = new_category_string
+
         final_string += rule_string
         final_string += mitre_string
         final_string += '\nReferences: \n'
